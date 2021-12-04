@@ -12,6 +12,7 @@ import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
+import javax.sql.DataSource;
 import java.security.InvalidKeyException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
@@ -25,7 +26,14 @@ import java.security.interfaces.RSAPublicKey;
 @Configuration
 public class DefaultTokenConfiguration {
 
+    private DataSource dataSource;
+
     private RsaKeyProperties rsaKeyProperties;
+
+    @Autowired
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     @Autowired
     public void setRsaKeyProperties(RsaKeyProperties rsaKeyProperties) {
@@ -54,16 +62,16 @@ public class DefaultTokenConfiguration {
     }
 
     /**
-     * Jwt Token 缓存
+     * JDBC Token 储存
      * 在 {@link TokenStore} 对应的 {@link Bean} 不存在时，才会创建此 {@link Bean}
      *
      * @return 在 {@link TokenStore} 对应的 {@link Bean} 不存在时，才会返回此 {@link Bean}
-     * @see JdbcTokenStore JDBC Token 储存
+     * @see JwtTokenStore Jwt Token 储存
      */
     @Bean
     @ConditionalOnMissingBean
-    public TokenStore tokenStore(JwtAccessTokenConverter jwtAccessTokenConverter) {
-        return new JwtTokenStore(jwtAccessTokenConverter);
+    public TokenStore tokenStore() {
+        return new JdbcTokenStore(dataSource);
     }
 
 }
