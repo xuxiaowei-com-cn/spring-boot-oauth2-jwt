@@ -1,0 +1,51 @@
+{
+  "authentication": {
+    "authorities": [
+      {
+        "authority": "user"
+      }
+    ],
+    "details": {
+      "remoteAddress": "0:0:0:0:0:0:0:1",
+      "sessionId": "5BD09FBDB59B69E3CF7D30E797B70B09",
+      "tokenValue": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Mzg4MzM3MjIsInVzZXJfbmFtZSI6Inh1eGlhb3dlaSIsImF1dGhvcml0aWVzIjpbInVzZXIiXSwianRpIjoiMC1pVWV2eHBXQlZoZXdlQ1JZS2VGdlJZZVJZIiwiY2xpZW50X2lkIjoiNWUwM2ZiMjkyZWRkNGU0NzhjZDdiNGQ2ZmMyMTUxOGMiLCJzY29wZSI6WyJzbnNhcGlfYmFzZSJdfQ.Q2hYGin-Etj-vv5jmxCXUZYT1Us29MTPY2BQnc9PNtYt_7M6SpiMKYJ3S49ibCLbFdzhxDBKRZj1Al4OJnYvVaFGvOtSxLC5itEQ5K-Xig16q3E_aHwTZWQDspd_72tYJ8eIetmyR79YVZtX8Aux6nooPbpLKx4g1xYyH0czozY",
+      "tokenType": "bearer",
+      "decodedDetails": null
+    },
+    "authenticated": true,
+    "userAuthentication": {
+      "authorities": [
+        {
+          "authority": "user"
+        }
+      ],
+      "details": null,
+      "authenticated": true,
+      "principal": "xuxiaowei",
+      "credentials": "N/A",
+      "name": "xuxiaowei"
+    },
+    "credentials": "",
+    "principal": "xuxiaowei",
+    "oauth2Request": {
+      "clientId": "5e03fb292edd4e478cd7b4d6fc21518c",
+      "scope": [
+        "snsapi_base"
+      ],
+      "requestParameters": {
+        "client_id": "5e03fb292edd4e478cd7b4d6fc21518c"
+      },
+      "resourceIds": [],
+      "authorities": [],
+      "approved": true,
+      "refresh": false,
+      "redirectUri": null,
+      "responseTypes": [],
+      "extensions": {},
+      "grantType": null,
+      "refreshTokenRequest": null
+    },
+    "clientOnly": false,
+    "name": "xuxiaowei"
+  }
+}
