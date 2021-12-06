@@ -1,10 +1,14 @@
 package cn.com.xuxiaowei.resource.server.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * Spring Security 配置
@@ -17,13 +21,28 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfigurerAdapter {
 
+    @Value("${spring.security.oauth2.resourceserver.jwt.jwk-set-uri}")
+    private String jwkSetUri;
+
+    private RestTemplate restTemplate;
+
+    @Autowired
+    public void setRestTemplate(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         // 禁用登录
         http.formLogin().disable();
 
-        http.oauth2ResourceServer().jwt();
+        NimbusJwtDecoder.JwkSetUriJwtDecoderBuilder jwkSetUriJwtDecoderBuilder = NimbusJwtDecoder.withJwkSetUri(jwkSetUri);
+         // 负载均衡的 RestTemplate
+        jwkSetUriJwtDecoderBuilder.restOperations(restTemplate);
+        NimbusJwtDecoder nimbusJwtDecoder = jwkSetUriJwtDecoderBuilder.build();
+
+        http.oauth2ResourceServer().jwt().decoder(nimbusJwtDecoder);
 
     }
 

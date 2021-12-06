@@ -9,7 +9,6 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
-import org.springframework.security.oauth2.provider.code.RedisAuthorizationCodeServices;
 
 import javax.sql.DataSource;
 
@@ -36,7 +35,6 @@ public class DefaultAuthorizationCodeConfiguration {
      *
      * @return 在 {@link AuthorizationCodeServices} 对应的 {@link Bean} 不存在时，才会返回此 {@link Bean}
      * @see InMemoryAuthorizationCodeServices 基于内存的 code 服务
-     * @see RedisAuthorizationCodeServices 基于 Redis 的 code 服务
      * @see JdbcAuthorizationCodeServices 基于 JDBC 的 code 服务
      */
     @Bean

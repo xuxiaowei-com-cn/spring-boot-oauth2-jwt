@@ -9,7 +9,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://localhost:10201/jwk
+          jwk-set-uri: http://authorization-server/jwk
 #
 # 日志 配置
 #
