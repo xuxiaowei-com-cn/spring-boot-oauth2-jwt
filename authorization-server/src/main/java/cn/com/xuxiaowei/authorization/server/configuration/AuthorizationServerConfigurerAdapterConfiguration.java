@@ -55,7 +55,7 @@ import java.util.Map;
  * @see <a href="http://127.0.0.1:10201/oauth/authorize?client_id=5e03fb292edd4e478cd7b4d6fc21518c&redirect_uri=http://127.0.0.1:123&response_type=code&scope=snsapi_base&state=beff3dfc-bad8-40db-b25f-e5459e3d6ad7">获取 code</a>
  * @see <a href="http://127.0.0.1:10201/oauth/authorize?client_id=5e03fb292edd4e478cd7b4d6fc21518c&redirect_uri=http://127.0.0.1:123&response_type=code&scope=snsapi_userinfo&state=beff3dfc-bad8-40db-b25f-e5459e3d6ad7">获取 code</a>
  * @see <a href="http://127.0.0.1:10201/oauth/authorize?client_id=5e03fb292edd4e478cd7b4d6fc21518c&redirect_uri=http://127.0.0.1:123&response_type=token&scope=snsapi_base&state=beff3dfc-bad8-40db-b25f-e5459e3d6ad7">获取 Token（implicit，简化模式）</a>
- * @see <a href="http://127.0.0.1:10201/oauth/token?code=rByID7GgOJ7xyEwZdApnYJMF9wFdecwe&client_id=5e03fb292edd4e478cd7b4d6fc21518c&client_secret=da4ce585e30346d3a876340d49e25a01&redirect_uri=http://127.0.0.1:123&grant_type=authorization_code">获取 Token</a>
+ * @see <a href="http://127.0.0.1:10201/oauth/token?code=EGrhFYFvPl7giQnYauYT_qAq5trD3mfY&client_id=5e03fb292edd4e478cd7b4d6fc21518c&client_secret=da4ce585e30346d3a876340d49e25a01&redirect_uri=http://127.0.0.1:123&grant_type=authorization_code">获取 Token</a>
  * @see <a href="http://127.0.0.1:10201/oauth/token?client_id=5e03fb292edd4e478cd7b4d6fc21518c&client_secret=da4ce585e30346d3a876340d49e25a01&grant_type=refresh_token&refresh_token=">刷新 Token</a>
  * @see <a href="http://127.0.0.1:10201/oauth/token?grant_type=client_credentials&client_id=5e03fb292edd4e478cd7b4d6fc21518c&client_secret=da4ce585e30346d3a876340d49e25a01&scope=snsapi_base snsapi_userinfo">凭证式 client_credentials</a>
  * @see <a href="http://127.0.0.1:10201/oauth/check_token?token=">检查 Token（需要使用 POST）</a>

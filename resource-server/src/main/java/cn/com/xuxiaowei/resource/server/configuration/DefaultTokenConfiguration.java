@@ -1,19 +1,16 @@
 package cn.com.xuxiaowei.resource.server.configuration;
 
-import cn.com.xuxiaowei.resource.server.properties.RsaKeyProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.jwt.crypto.sign.RsaVerifier;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
-import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
-import java.security.InvalidKeyException;
-import java.security.interfaces.RSAPublicKey;
+import javax.sql.DataSource;
 
 /**
  * 默认 Token 配置
@@ -24,29 +21,11 @@ import java.security.interfaces.RSAPublicKey;
 @Configuration
 public class DefaultTokenConfiguration {
 
-    private RsaKeyProperties rsaKeyProperties;
+    private DataSource dataSource;
 
     @Autowired
-    public void setRsaKeyProperties(RsaKeyProperties rsaKeyProperties) {
-        this.rsaKeyProperties = rsaKeyProperties;
-    }
-
-    /**
-     * 加密 Token {@link Bean}
-     * <p>
-     * 在 {@link JwtAccessTokenConverter} 对应的 {@link Bean} 不存在时，才会创建此 {@link Bean}
-     *
-     * @return 在 {@link JwtAccessTokenConverter} 对应的 {@link Bean} 不存在时，才会返回此 {@link Bean}
-     * @throws InvalidKeyException 秘钥不合法
-     */
-    @Bean
-    @ConditionalOnMissingBean
-    public JwtAccessTokenConverter jwtAccessTokenConverter() throws InvalidKeyException {
-        // 加密 Token
-        JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
-        RSAPublicKey rsaPublicKey = rsaKeyProperties.rsaPublicKey();
-        jwtAccessTokenConverter.setVerifier(new RsaVerifier(rsaPublicKey));
-        return jwtAccessTokenConverter;
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
     }
 
     /**
@@ -59,14 +38,14 @@ public class DefaultTokenConfiguration {
      */
     @Bean
     @ConditionalOnMissingBean
-    public ResourceServerTokenServices resourceServerTokenServices(JwtAccessTokenConverter jwtAccessTokenConverter) {
+    public ResourceServerTokenServices resourceServerTokenServices() {
         DefaultTokenServices tokenServices = new DefaultTokenServices();
 
-        // Jwt Token 缓存
-        JwtTokenStore jwtTokenStore = new JwtTokenStore(jwtAccessTokenConverter);
+        // JDBC Token 缓存
+        JdbcTokenStore jdbcTokenStore = new JdbcTokenStore(dataSource);
 
-        // 设置 Jwt Token 缓存
-        tokenServices.setTokenStore(jwtTokenStore);
+        // 设置 JDBC Token 缓存
+        tokenServices.setTokenStore(jdbcTokenStore);
 
         return tokenServices;
     }
