@@ -23,6 +23,8 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
         // 禁用登录
         http.formLogin().disable();
 
+        http.oauth2ResourceServer().jwt();
+
     }
 
 }

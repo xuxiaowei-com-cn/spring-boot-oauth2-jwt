@@ -4,6 +4,13 @@ server:
   # 端口
   port: 10301
 #
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:10201/jwk
+#
 # 日志 配置
 #
 logging:
@@ -13,8 +20,3 @@ logging:
     # Spring Cloud 中无法使用 logging.level.web: debug
     org.springframework.web: debug
     org.springframework.security: debug
-#
-# RSA
-rsa:
-  # 公钥
-  public-key: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCD5XD8TEL7d6EwN6WohUhLMPbx7LumqTY4hD0wHQDVB8QcOtyKiHTJEL+KnmY662gkDJnxiaeMUqX5c2AneXf3wLCYi6I8JmFqSNhOdxNdo/YvklPcmBAmxpW2grZdO4J2MWVykHrAMD07YJOKXDZcwe4HQgpoIH7hKvalcc4QnQIDAQAB
