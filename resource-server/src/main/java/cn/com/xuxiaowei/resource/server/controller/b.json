@@ -1,0 +1,109 @@
+{
+  "authentication": {
+    "authorities": [
+      {
+        "authority": "SCOPE_snsapi_base"
+      }
+    ],
+    "details": {
+      "remoteAddress": "0:0:0:0:0:0:0:1",
+      "sessionId": null
+    },
+    "authenticated": true,
+    "principal": {
+      "tokenValue": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Mzg4MzM3MjIsInVzZXJfbmFtZSI6Inh1eGlhb3dlaSIsImF1dGhvcml0aWVzIjpbInVzZXIiXSwianRpIjoiMC1pVWV2eHBXQlZoZXdlQ1JZS2VGdlJZZVJZIiwiY2xpZW50X2lkIjoiNWUwM2ZiMjkyZWRkNGU0NzhjZDdiNGQ2ZmMyMTUxOGMiLCJzY29wZSI6WyJzbnNhcGlfYmFzZSJdfQ.Q2hYGin-Etj-vv5jmxCXUZYT1Us29MTPY2BQnc9PNtYt_7M6SpiMKYJ3S49ibCLbFdzhxDBKRZj1Al4OJnYvVaFGvOtSxLC5itEQ5K-Xig16q3E_aHwTZWQDspd_72tYJ8eIetmyR79YVZtX8Aux6nooPbpLKx4g1xYyH0czozY",
+      "issuedAt": "2021-12-06T23:35:21Z",
+      "expiresAt": "2021-12-06T23:35:22Z",
+      "headers": {
+        "typ": "JWT",
+        "alg": "RS256"
+      },
+      "claims": {
+        "user_name": "xuxiaowei",
+        "scope": [
+          "snsapi_base"
+        ],
+        "exp": "2021-12-06T23:35:22Z",
+        "iat": "2021-12-06T23:35:21Z",
+        "authorities": [
+          "user"
+        ],
+        "jti": "0-iUevxpWBVheweCRYKeFvRYeRY",
+        "client_id": "5e03fb292edd4e478cd7b4d6fc21518c"
+      },
+      "id": "0-iUevxpWBVheweCRYKeFvRYeRY",
+      "subject": null,
+      "audience": null,
+      "issuer": null,
+      "notBefore": null
+    },
+    "credentials": {
+      "tokenValue": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Mzg4MzM3MjIsInVzZXJfbmFtZSI6Inh1eGlhb3dlaSIsImF1dGhvcml0aWVzIjpbInVzZXIiXSwianRpIjoiMC1pVWV2eHBXQlZoZXdlQ1JZS2VGdlJZZVJZIiwiY2xpZW50X2lkIjoiNWUwM2ZiMjkyZWRkNGU0NzhjZDdiNGQ2ZmMyMTUxOGMiLCJzY29wZSI6WyJzbnNhcGlfYmFzZSJdfQ.Q2hYGin-Etj-vv5jmxCXUZYT1Us29MTPY2BQnc9PNtYt_7M6SpiMKYJ3S49ibCLbFdzhxDBKRZj1Al4OJnYvVaFGvOtSxLC5itEQ5K-Xig16q3E_aHwTZWQDspd_72tYJ8eIetmyR79YVZtX8Aux6nooPbpLKx4g1xYyH0czozY",
+      "issuedAt": "2021-12-06T23:35:21Z",
+      "expiresAt": "2021-12-06T23:35:22Z",
+      "headers": {
+        "typ": "JWT",
+        "alg": "RS256"
+      },
+      "claims": {
+        "user_name": "xuxiaowei",
+        "scope": [
+          "snsapi_base"
+        ],
+        "exp": "2021-12-06T23:35:22Z",
+        "iat": "2021-12-06T23:35:21Z",
+        "authorities": [
+          "user"
+        ],
+        "jti": "0-iUevxpWBVheweCRYKeFvRYeRY",
+        "client_id": "5e03fb292edd4e478cd7b4d6fc21518c"
+      },
+      "id": "0-iUevxpWBVheweCRYKeFvRYeRY",
+      "subject": null,
+      "audience": null,
+      "issuer": null,
+      "notBefore": null
+    },
+    "token": {
+      "tokenValue": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Mzg4MzM3MjIsInVzZXJfbmFtZSI6Inh1eGlhb3dlaSIsImF1dGhvcml0aWVzIjpbInVzZXIiXSwianRpIjoiMC1pVWV2eHBXQlZoZXdlQ1JZS2VGdlJZZVJZIiwiY2xpZW50X2lkIjoiNWUwM2ZiMjkyZWRkNGU0NzhjZDdiNGQ2ZmMyMTUxOGMiLCJzY29wZSI6WyJzbnNhcGlfYmFzZSJdfQ.Q2hYGin-Etj-vv5jmxCXUZYT1Us29MTPY2BQnc9PNtYt_7M6SpiMKYJ3S49ibCLbFdzhxDBKRZj1Al4OJnYvVaFGvOtSxLC5itEQ5K-Xig16q3E_aHwTZWQDspd_72tYJ8eIetmyR79YVZtX8Aux6nooPbpLKx4g1xYyH0czozY",
+      "issuedAt": "2021-12-06T23:35:21Z",
+      "expiresAt": "2021-12-06T23:35:22Z",
+      "headers": {
+        "typ": "JWT",
+        "alg": "RS256"
+      },
+      "claims": {
+        "user_name": "xuxiaowei",
+        "scope": [
+          "snsapi_base"
+        ],
+        "exp": "2021-12-06T23:35:22Z",
+        "iat": "2021-12-06T23:35:21Z",
+        "authorities": [
+          "user"
+        ],
+        "jti": "0-iUevxpWBVheweCRYKeFvRYeRY",
+        "client_id": "5e03fb292edd4e478cd7b4d6fc21518c"
+      },
+      "id": "0-iUevxpWBVheweCRYKeFvRYeRY",
+      "subject": null,
+      "audience": null,
+      "issuer": null,
+      "notBefore": null
+    },
+    "name": null,
+    "tokenAttributes": {
+      "user_name": "xuxiaowei",
+      "scope": [
+        "snsapi_base"
+      ],
+      "exp": "2021-12-06T23:35:22Z",
+      "iat": "2021-12-06T23:35:21Z",
+      "authorities": [
+        "user"
+      ],
+      "jti": "0-iUevxpWBVheweCRYKeFvRYeRY",
+      "client_id": "5e03fb292edd4e478cd7b4d6fc21518c"
+    }
+  }
+}
