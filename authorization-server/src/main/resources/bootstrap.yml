@@ -36,3 +36,15 @@ spring:
           - dataId: xuxiaowei.${spring.cloud.nacos.config.file-extension}
             # 是否支持刷新
             refresh: true
+    # 负载均衡
+    loadbalancer:
+      # ribbon 负载均衡
+      ribbon:
+        # 是否启用
+        # -2021-12-01 23:42:05.764 - WARN 13712 --- [           main] ockingLoadBalancerClientRibbonWarnLogger :  :  :  : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+        # 您的类 classpath 上已经有 RibbonLoadBalancerClient。
+        # 它将默认使用。
+        # 由于 Spring Cloud Ribbon 处于维护模式。
+        # 我们建议改用 BlockingLoadBalancerClient。
+        # 为了使用它，请将 `spring.cloud.loadbalancer.ribbon.enabled` 的值设置为 `false` 或从您的项目中删除 spring-cloud-starter-netflix-ribbon。
+        enabled: false
