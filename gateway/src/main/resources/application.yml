@@ -1,0 +1,14 @@
+#
+# 服务器-配置
+server:
+  # 端口
+  port: 10001
+#
+# 日志 配置
+#
+logging:
+  # 日志等级
+  level:
+    cn.com.xuxiaowei: debug
+    # Spring Cloud 中无法使用 logging.level.web: debug
+    org.springframework.web: debug
