@@ -22,7 +22,7 @@ spring:
         # 服务发现地址
         server-addr: 127.0.0.1:8848
         # 命名空间
-        namespace: public
+        namespace:
       # 服务配置
       config:
         # 配置文件后缀名
@@ -30,7 +30,7 @@ spring:
         # 配置服务器地址
         server-addr: 127.0.0.1:8848
         # 命名空间
-        namespace: public
+        namespace:
         # 共享配置
         shared-configs:
           - dataId: xuxiaowei.${spring.cloud.nacos.config.file-extension}
