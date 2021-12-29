@@ -43,4 +43,20 @@ public class BusinessRestController {
         return ResponseEntity.ok(map);
     }
 
+    /**
+     * 测试 Body
+     *
+     * @param request  请求
+     * @param response 响应
+     * @return 返回 数据
+     */
+    @RequestMapping("/body")
+    public Map<String, Object> body(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, Object> map = new HashMap<>(8);
+
+        map.put("body", "你好，世界");
+
+        return map;
+    }
+
 }
