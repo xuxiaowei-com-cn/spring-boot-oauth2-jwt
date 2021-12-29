@@ -4,14 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.oauth2.common.util.RandomValueStringGenerator;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.RedisAuthorizationCodeServices;
-
-import javax.sql.DataSource;
 
 /**
  * 默认 授权 Code 配置
@@ -22,11 +21,11 @@ import javax.sql.DataSource;
 @Configuration
 public class DefaultAuthorizationCodeConfiguration {
 
-    private DataSource dataSource;
+    private RedisConnectionFactory connectionFactory;
 
     @Autowired
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public void setConnectionFactory(RedisConnectionFactory connectionFactory) {
+        this.connectionFactory = connectionFactory;
     }
 
     /**
@@ -42,7 +41,7 @@ public class DefaultAuthorizationCodeConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public AuthorizationCodeServices jdbcAuthorizationCodeServices() {
-        return new JdbcAuthorizationCodeServices(dataSource) {
+        return new RedisAuthorizationCodeServices(connectionFactory) {
             private final RandomValueStringGenerator GENERATOR = new RandomValueStringGenerator();
 
             @Override

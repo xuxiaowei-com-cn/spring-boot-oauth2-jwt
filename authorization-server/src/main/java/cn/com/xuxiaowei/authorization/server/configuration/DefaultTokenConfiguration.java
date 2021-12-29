@@ -5,14 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.jwt.crypto.sign.RsaSigner;
 import org.springframework.security.jwt.crypto.sign.RsaVerifier;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
-import javax.sql.DataSource;
 import java.security.InvalidKeyException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
@@ -26,13 +27,13 @@ import java.security.interfaces.RSAPublicKey;
 @Configuration
 public class DefaultTokenConfiguration {
 
-    private DataSource dataSource;
+    private RedisConnectionFactory connectionFactory;
 
     private RsaKeyProperties rsaKeyProperties;
 
     @Autowired
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public void setConnectionFactory(RedisConnectionFactory connectionFactory) {
+        this.connectionFactory = connectionFactory;
     }
 
     @Autowired
@@ -67,11 +68,13 @@ public class DefaultTokenConfiguration {
      *
      * @return 在 {@link TokenStore} 对应的 {@link Bean} 不存在时，才会返回此 {@link Bean}
      * @see JwtTokenStore Jwt Token 储存
+     * @see JdbcTokenStore JDBC Token 储存
+     * @see RedisTokenStore Redis Token 储存
      */
     @Bean
     @ConditionalOnMissingBean
     public TokenStore tokenStore() {
-        return new JdbcTokenStore(dataSource);
+        return new RedisTokenStore(connectionFactory);
     }
 
 }
