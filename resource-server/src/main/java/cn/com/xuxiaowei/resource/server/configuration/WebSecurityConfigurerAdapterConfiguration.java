@@ -38,11 +38,14 @@ public class WebSecurityConfigurerAdapterConfiguration extends WebSecurityConfig
         http.formLogin().disable();
 
         NimbusJwtDecoder.JwkSetUriJwtDecoderBuilder jwkSetUriJwtDecoderBuilder = NimbusJwtDecoder.withJwkSetUri(jwkSetUri);
-         // 负载均衡的 RestTemplate
+        // 负载均衡的 RestTemplate
         jwkSetUriJwtDecoderBuilder.restOperations(restTemplate);
         NimbusJwtDecoder nimbusJwtDecoder = jwkSetUriJwtDecoderBuilder.build();
 
         http.oauth2ResourceServer().jwt().decoder(nimbusJwtDecoder);
+
+        // 不验证 CSRF
+        http.csrf().ignoringAntMatchers("/business/body/decrypt");
 
     }
 
