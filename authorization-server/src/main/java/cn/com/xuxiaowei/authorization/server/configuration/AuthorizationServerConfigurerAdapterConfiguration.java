@@ -1,5 +1,7 @@
 package cn.com.xuxiaowei.authorization.server.configuration;
 
+import cn.com.xuxiaowei.authorization.server.error.ErrWebResponseExceptionTranslator;
+import cn.com.xuxiaowei.authorization.server.interceptor.EndpointsHandlerInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.authserver.AuthorizationServerTokenServicesConfiguration;
 import org.springframework.context.annotation.Configuration;
@@ -137,6 +139,10 @@ public class AuthorizationServerConfigurerAdapterConfiguration extends Authoriza
 
         // Token 增强
         endpoints.tokenEnhancer(tokenEnhancer);
+
+        endpoints.exceptionTranslator(new ErrWebResponseExceptionTranslator());
+
+        endpoints.addInterceptor(new EndpointsHandlerInterceptor());
 
     }
 
