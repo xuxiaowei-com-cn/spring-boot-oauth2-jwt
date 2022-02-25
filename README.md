@@ -14,3 +14,8 @@ Spring Boot OAuth2 JWT
 ## 流程图
 
 ![Jwt_Token](./png/Jwt_Token.png)
+
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/xuxiaowei-com-cn/spring-boot-oauth2-jwt.svg)](https://starchart.cc/xuxiaowei-com-cn/spring-boot-oauth2-jwt)
