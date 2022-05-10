@@ -40,7 +40,7 @@ public class RsaKeyProperties {
      * @throws InvalidKeyException 秘钥不合法
      */
     public RSAPublicKey rsaPublicKey() throws InvalidKeyException {
-        return RSAPublicKeyImpl.newKey(Base64.decodeBase64(publicKey));
+        return new RSAPublicKeyImpl(Base64.decodeBase64(publicKey));
     }
 
     /**
