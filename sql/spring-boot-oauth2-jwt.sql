@@ -74,7 +74,7 @@ CREATE TABLE `oauth_client_details`  (
 -- ----------------------------
 -- Records of oauth_client_details
 -- ----------------------------
-INSERT INTO `oauth_client_details` VALUES ('5e03fb292edd4e478cd7b4d6fc21518c', NULL, '{bcrypt}$2a$10$/f6qc5liQvYuZMUZlec3aOcZqd.TKxtmOtmVTJzyxVupoK31zGCW.', 'snsapi_base,snsapi_userinfo', NULL, 'http://a.com,http://127.0.0.1:123', NULL, NULL, NULL, NULL, 'true');
+INSERT INTO `oauth_client_details` VALUES ('5e03fb292edd4e478cd7b4d6fc21518c', NULL, '{bcrypt}$2a$10$/f6qc5liQvYuZMUZlec3aOcZqd.TKxtmOtmVTJzyxVupoK31zGCW.', 'snsapi_base,snsapi_userinfo', 'authorization_code,refresh_token,password', 'http://a.com,http://127.0.0.1:123', NULL, NULL, NULL, NULL, 'true');
 
 -- ----------------------------
 -- Table structure for oauth_code
