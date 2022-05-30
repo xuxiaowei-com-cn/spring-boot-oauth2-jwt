@@ -24,6 +24,7 @@
 
     <modules>
         <module>authorization-server</module>
+        <module>gateway</module>
         <module>resource-server</module>
     </modules>
 
