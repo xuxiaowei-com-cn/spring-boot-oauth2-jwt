@@ -1,12 +1,11 @@
 package cn.com.xuxiaowei.resource.server.properties;
 
+import cn.hutool.crypto.asymmetric.RSA;
 import lombok.Data;
-import org.apache.commons.codec.binary.Base64;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
-import sun.security.rsa.RSAPublicKeyImpl;
 
-import java.security.InvalidKeyException;
+import java.security.PublicKey;
 import java.security.interfaces.RSAPublicKey;
 
 /**
@@ -27,13 +26,21 @@ public class RsaKeyProperties {
     private String publicKey;
 
     /**
-     * 获取公钥
+     * 获取 RSA 公钥 对象
      *
-     * @return 返回 公钥
-     * @throws InvalidKeyException 秘钥不合法
+     * @return 返回 RSA 公钥
      */
-    public RSAPublicKey rsaPublicKey() throws InvalidKeyException {
-        return new RSAPublicKeyImpl(Base64.decodeBase64(publicKey));
+    public PublicKey publicKey() {
+        return new RSA(null, publicKey).getPublicKey();
+    }
+
+    /**
+     * 获取 RSA 公钥 对象
+     *
+     * @return 返回 RSA 公钥
+     */
+    public RSAPublicKey rsaPublicKey() {
+        return (RSAPublicKey) publicKey();
     }
 
 }
